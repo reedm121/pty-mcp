@@ -4,7 +4,7 @@ MCP server that gives AI coding agents a real pseudo-terminal (PTY) for handling
 
 ## Why I Built This
 
-I was using Claude Code with [Drizzle ORM](https://orm.drizzle.team) and hit a wall: `drizzle-kit generate` asks interactive questions like "Is this table created or renamed?" that Claude Code couldn't answer. It just hung. I looked for existing MCP tools to solve this but nothing trustworthy existed, so I built one.
+I was using Claude Code with [Drizzle ORM](https://orm.drizzle.team) and hit a wall: `drizzle-kit generate` asks interactive questions like "Is this table created or renamed?" that Claude Code couldn't answer. It just hung. I wanted something minimal and self-contained, so I built one.
 
 It works for way more than just Drizzle though — any CLI tool with interactive prompts becomes fully autonomous:
 
