@@ -6,6 +6,17 @@ MCP server that gives AI coding agents a real pseudo-terminal (PTY) for handling
 
 I was using Claude Code with [Drizzle ORM](https://orm.drizzle.team) and hit a wall: `drizzle-kit generate` asks interactive questions like "Is this table created or renamed?" that Claude Code couldn't answer. It just hung. I looked for existing MCP tools to solve this but nothing trustworthy existed, so I built one.
 
+It works for way more than just Drizzle though — any CLI tool with interactive prompts becomes fully autonomous:
+
+- **Database migrations** — Drizzle Kit, Prisma, TypeORM, Knex
+- **Project scaffolding** — `npm init`, `create-next-app`, `create-vite`, `npx degit`
+- **Package managers** — `npm install` peer dep prompts, `yarn` resolutions
+- **Git operations** — interactive rebase, merge conflict resolution, `git add -p`
+- **Cloud CLIs** — `aws configure`, `gcloud init`, `firebase init`, `vercel`
+- **Docker** — `docker build` prompts, `docker compose` confirmations
+- **System tools** — `ssh-keygen`, `gpg --gen-key`, `certbot`
+- **Linters/formatters** — ESLint `--init`, Prettier setup, `stylelint` config
+
 ## The Problem
 
 AI coding agents like Claude Code can run shell commands, but they can't handle **interactive prompts**. When a CLI tool asks "Is this table created or renamed?" or "Pick a preset:", the agent gets stuck — it can't read the prompt or type an answer. This blocks any CLI workflow that requires human input — database migrations, project scaffolding, package configuration, and more.
